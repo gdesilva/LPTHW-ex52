@@ -29,10 +29,7 @@ class Room(object):
 
 main_menu = Room("Main Menu",
 """
----------------
-|  Main Menu  |
---------------- \n
-[ new game | load game ]
+New game or load game (not implemented)
 """)
 
 
@@ -131,6 +128,10 @@ main_menu.add_paths({
     'New Game': central_corridor,
 })
 
+the_end_winner.add_paths({
+    'Main Menu': main_menu,
+})
+
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
@@ -148,7 +149,7 @@ the_bridge.add_paths({
 })
 
 laser_weapon_armory.add_paths({
-    '0132': the_bridge,
+    '132': the_bridge,
     '*': generic_death
 })
 # TODO(gus): we want to randomise the required keypad number
