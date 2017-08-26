@@ -1,14 +1,14 @@
 
-#TODO(gus):
-# Remove 'Gothon' story template and replace with own
+#TODO:
+#Change the game so it's like ex45
 
-# Path choices should be separate rooms
+#Choices should be separate rooms
 
-# Inventory check can be implemented as a path that is available in each room 
+#Inventory check should be a path
 
-# Should display health at the top of the screen
+#Should display health at the top of the screen
 
-# Battles can be rooms, but the enemy entities will be managed by objects
+#Battles can be rooms, but the enemy entities will be managed by objects
 
 
 
@@ -29,10 +29,7 @@ class Room(object):
 
 main_menu = Room("Main Menu",
 """
----------------
-|  Main Menu  |
---------------- \n
-[ new game | load game ]
+New game or load game (not implemented)
 """)
 
 
@@ -131,14 +128,18 @@ main_menu.add_paths({
     'New Game': central_corridor,
 })
 
+the_end_winner.add_paths({
+    'Main Menu': main_menu,
+})
+
 escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
 })
-# TODO(gus): this should be random
+# this should be random
 
 generic_death = Room("death", "You died.")
-# Zed: I've just made a generic_death ending for all of the bad decisions, which
+# I've just made a generic_death ending for all of the bad decisions, which
 # you'll have to finish for me. You'll need to go back through and add in all
 # the original endings and make sure they work.
 
@@ -148,10 +149,10 @@ the_bridge.add_paths({
 })
 
 laser_weapon_armory.add_paths({
-    '0132': the_bridge,
+    '132': the_bridge,
     '*': generic_death
 })
-# TODO(gus): we want to randomise the required keypad number
+# we want to randomise the required keypad number
 
 central_corridor.add_paths({
     'shoot!': generic_death,
