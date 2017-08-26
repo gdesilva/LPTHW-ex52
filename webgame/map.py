@@ -1,14 +1,14 @@
 
-#TODO:
-#Change the game so it's like ex45
+#TODO(gus):
+# Remove 'Gothon' story template and replace with own
 
-#Choices should be separate rooms
+# Path choices should be separate rooms
 
-#Inventory check should be a path
+# Inventory check can be implemented as a path that is available in each room 
 
-#Should display health at the top of the screen
+# Should display health at the top of the screen
 
-#Battles can be rooms, but the enemy entities will be managed by objects
+# Battles can be rooms, but the enemy entities will be managed by objects
 
 
 
@@ -136,10 +136,10 @@ escape_pod.add_paths({
     '2': the_end_winner,
     '*': the_end_loser
 })
-# this should be random
+# TODO(gus): this should be random
 
 generic_death = Room("death", "You died.")
-# I've just made a generic_death ending for all of the bad decisions, which
+# Zed: I've just made a generic_death ending for all of the bad decisions, which
 # you'll have to finish for me. You'll need to go back through and add in all
 # the original endings and make sure they work.
 
@@ -152,7 +152,7 @@ laser_weapon_armory.add_paths({
     '132': the_bridge,
     '*': generic_death
 })
-# we want to randomise the required keypad number
+# TODO(gus): we want to randomise the required keypad number
 
 central_corridor.add_paths({
     'shoot!': generic_death,
