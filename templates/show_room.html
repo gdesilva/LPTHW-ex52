@@ -8,9 +8,28 @@ $room.description
 
 $if room.name == "death":
   <p><a href="/">Play Again?</a></p>
+$elif room.name == "Laser Weapon Armory":
+  <p>
+    <form action="/game" method="POST">
+      <input type="text" name="action"> <input type="SUBMIT" value="ENTER">
+$elif room.name == "Escape Pod":
+  <p>
+    <form action="/game" method="POST">
+      <input type="text" name="action"> <input type="SUBMIT" value="ENTER">
 $else:
   <p>
   <form action="/game" method="POST">
-    <input type="text" name="action"> <input type="SUBMIT">
+  $for key in room.paths.keys():
+    <input type="submit" name="action" value="$key"/>
+    <!-- Had some trouble getting the whole string into the value attribute
+    - turns out I just needed to encase the $key with ""... -->
+
+    <!-- Todo(gus): Perhaps we can give certain types of rooms a flag/attribute
+    that ensures the site displays free text instead of options. This would be
+    than manually adding each to this template and can be adapted for similar
+    structured games -->
+
+
+
   </form>
   </p>
